@@ -366,3 +366,53 @@ footer {
   color: var(--text-dim);
   font-size: 0.8rem;
 }
+
+/* === RESPONSIVE / MOBILE === */
+@media (max-width: 640px) {
+  /* Navbar: hide brand text so links fit on one line */
+  .brand-name {
+    display: none;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+  }
+
+  /* Header logo: switch from fixed height to fluid width */
+  .header-logo {
+    height: auto;
+    width: 80vw;
+    max-width: 420px;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* Content & sections: reduce padding */
+  .content {
+    padding: 24px 16px;
+  }
+
+  section {
+    padding: 20px 16px;
+  }
+
+  /* List items: stack label above value instead of side-by-side */
+  ul li {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  ul li strong {
+    min-width: unset;
+  }
+
+  /* App cards: stack icon above info */
+  .app-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
