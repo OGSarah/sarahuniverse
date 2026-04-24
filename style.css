@@ -391,6 +391,10 @@ footer {
 /* === RESPONSIVE / MOBILE === */
 @media (max-width: 640px) {
 
+  .nav-logo {
+    height: 28px;
+  }
+
   .nav-links a {
     font-size: 0.82rem;
     padding: 6px 10px;
