@@ -351,11 +351,28 @@ a:hover {
   opacity: 1;
 }
 
-/* === OPEN TO WORK === */
-.open-to-work {
-  color: var(--purple-light);
-  font-weight: 500;
-  margin-bottom: 16px;
+
+/* === GITHUB ICON === */
+.github-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.github-icon-link:hover {
+  transform: scale(1.2);
+}
+
+.github-icon {
+  width: 22px;
+  height: 22px;
+  fill: var(--text-muted);
+  transition: fill 0.2s;
+}
+
+.github-icon-link:hover .github-icon {
+  fill: var(--purple-light);
 }
 
 /* === FOOTER === */
