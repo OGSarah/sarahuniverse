@@ -392,8 +392,12 @@ footer {
 @media (max-width: 640px) {
 
   .nav-logo {
-    height: 20px;
-    max-width: 120px;
+    height: 16px;
+    max-width: 100px;
+  }
+
+  .nav-container {
+    padding: 0 16px;
   }
 
   .nav-links a {
