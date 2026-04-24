@@ -127,6 +127,7 @@ body > *:not(.stars):not(.stars2):not(.stars3) {
 .nav-logo {
   height: 36px;
   width: auto;
+  display: none;
 }
 
 .brand-name {
@@ -181,10 +182,13 @@ body > *:not(.stars):not(.stars2):not(.stars3) {
 }
 
 .header-logo {
-  height: 500px;
-  width: auto;
+  height: auto;
+  width: clamp(260px, 45vw, 520px);
+  max-width: 100%;
   margin-bottom: 0;
   position: relative;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .tagline {
@@ -386,7 +390,11 @@ footer {
 
 /* === RESPONSIVE / MOBILE === */
 @media (max-width: 640px) {
-  /* Navbar: hide brand text so links fit on one line */
+  /* Navbar: on mobile show icon, hide text */
+  .nav-logo {
+    display: block;
+  }
+
   .brand-name {
     display: none;
   }
@@ -396,12 +404,6 @@ footer {
     padding: 6px 10px;
   }
 
-  /* Header logo: switch from fixed height to fluid width */
-  .header-logo {
-    height: auto;
-    width: 80vw;
-    max-width: 420px;
-  }
 
   .tagline {
     font-size: 1.1rem;
