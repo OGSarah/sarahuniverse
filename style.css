@@ -125,14 +125,14 @@ body > *:not(.stars):not(.stars2):not(.stars3) {
 }
 
 .nav-logo {
-  height: 36px;
+  height: 48px;
   width: auto;
-  display: none;
 }
 
 .brand-name {
+  display: none;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: var(--text);
   letter-spacing: 0.01em;
 }
@@ -390,14 +390,6 @@ footer {
 
 /* === RESPONSIVE / MOBILE === */
 @media (max-width: 640px) {
-  /* Navbar: on mobile show icon, hide text */
-  .nav-logo {
-    display: block;
-  }
-
-  .brand-name {
-    display: none;
-  }
 
   .nav-links a {
     font-size: 0.82rem;
