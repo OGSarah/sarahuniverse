@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TossTracker — SarahUniverse</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html"><img src="assets/name-transparent.png" class="nav-logo" alt="SarahUniverse Logo"></a>
+        <a href="index.html" class="brand-name">SarahUniverse</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="apps.html" class="active">Apps</a></li>
+        <li>
+          <a href="https://github.com/OGSarah" target="_blank" rel="noopener" class="github-icon-link" aria-label="GitHub profile">
+            <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c.96.005 1.927.138 2.993.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:sarah@sarahuniverse.com" class="github-icon-link" aria-label="Send email">
+            <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header">
+    <p class="tagline">TossTracker &nbsp;·&nbsp; iOS</p>
+    <div class="carousel-wrap">
+      <div class="carousel">
+        <button class="carousel-btn carousel-prev" aria-label="Previous screenshot">&#8249;</button>
+        <div class="carousel-track-wrap">
+          <div class="carousel-track">
+            <img src="assets/tt-three-taps.jpg" alt="Three taps. One winner." class="carousel-slide">
+            <img src="assets/tt-first-to-21.jpg" alt="First to 21 wins." class="carousel-slide">
+            <img src="assets/tt-pick-your-colors.jpg" alt="Pick your colors." class="carousel-slide">
+            <img src="assets/tt-never-lose.jpg" alt="Never lose a game." class="carousel-slide">
+            <img src="assets/tt-find-any-match.jpg" alt="Find any match, fast." class="carousel-slide">
+          </div>
+        </div>
+        <button class="carousel-btn carousel-next" aria-label="Next screenshot">&#8250;</button>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" aria-label="Slide 1"></button>
+        <button class="carousel-dot" aria-label="Slide 2"></button>
+        <button class="carousel-dot" aria-label="Slide 3"></button>
+        <button class="carousel-dot" aria-label="Slide 4"></button>
+        <button class="carousel-dot" aria-label="Slide 5"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section id="about">
+      <h2>TossTracker</h2>
+      <div class="app-about-row">
+        <img src="assets/tosstrack-icon.png" class="app-about-icon" alt="TossTracker icon">
+        <p>A cornhole scoring app for iOS. Track throws, manage scores, and keep the game moving.</p>
+      </div>
+    </section>
+
+    <section id="links">
+      <h2>Links</h2>
+      <p><a href="tosstracker-privacy.html">Privacy Policy</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SarahUniverse. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let current = 0;
+
+    function goTo(n) {
+      current = (n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1));
+    document.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    // Touch swipe support
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+  </script>
+</body>
+</html>

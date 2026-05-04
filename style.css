@@ -285,7 +285,14 @@ a:hover {
 }
 
 /* === APP CARDS === */
+.apps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .app-card {
+  text-decoration: none;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -353,6 +360,176 @@ a:hover {
 
 .app-store-badge:hover img {
   opacity: 1;
+}
+
+/* === APP PAGE HEADER ICON === */
+.app-header-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 22%;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+/* === PRIVACY POLICY === */
+.policy-updated {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+
+.policy-block {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.policy-block:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.policy-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  margin: 0 0 12px 0;
+}
+
+.policy-block p + p {
+  margin-top: 12px;
+}
+
+.policy-list {
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0;
+  padding-left: 4px;
+}
+
+.policy-list li {
+  display: flex;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  align-items: baseline;
+}
+
+.policy-list li::before {
+  content: '–';
+  color: var(--purple-light);
+  flex-shrink: 0;
+}
+
+.policy-list li strong {
+  color: var(--text);
+  font-weight: 500;
+  font-family: inherit;
+  font-size: inherit;
+  min-width: unset;
+}
+
+.policy-contact {
+  margin-top: 12px;
+  line-height: 1.9;
+}
+
+/* === SCREENSHOT CAROUSEL === */
+.carousel-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 20px;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 21%;
+}
+
+.app-about-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-about-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 22%;
+  flex-shrink: 0;
+}
+
+.carousel-track-wrap {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.carousel-btn {
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.carousel-btn:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-glow);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.carousel-dot.active {
+  background: var(--purple-light);
 }
 
 
@@ -434,5 +611,26 @@ footer {
   .app-card {
     flex-direction: column;
     gap: 16px;
+  }
+
+  /* Policy list: keep dash and text side-by-side (override global ul li stacking) */
+  .carousel {
+    width: 85%;
+  }
+
+  .app-about-row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .policy-list li {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .policy-block {
+    padding-bottom: 22px;
+    margin-bottom: 22px;
   }
 }
